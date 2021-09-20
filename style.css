@@ -1,29 +1,23 @@
-* {
-    /* border: 1px solid salmon; */
-}
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* * {
+    box-sizing: border-box;
+    border: 1px solid gray;
+} */
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: Lexend, sans-serif;
 }
 
-.toc ul {
-    padding:0;
+#contents {
     list-style: none;
+    padding: 0;
 }
 
-.toc li {
-    margin:0;
-    margin-bottom: 0.5rem;
+#dashNumbers {
+    font-size: 4em;
 }
 
-.toc li a {
-    text-decoration: none;
-}
-
-.toc li a:hover {
-    text-decoration: underline;
-}
-
-.required-classes .card {
-    border-left: 8px solid #0c63e4;
+#profilePhoto {
+    max-width: 40%;
 }
