@@ -21,3 +21,8 @@ body {
 #profilePhoto {
     max-width: 40%;
 }
+
+#onThisPage {
+    position: sticky;
+    top: 57px;
+}
