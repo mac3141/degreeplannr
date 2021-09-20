@@ -1,502 +1,919 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
-  <head>
+<html lang="en">
+
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;800&display=swap"
-      rel="stylesheet"
-    />
+    <title>Degree Planner | Schedule</title>
+</head>
 
-    <link rel="stylesheet" href="style.css" />
-    <title>Degree Plannr | Schedule</title>
-  </head>
-  <body class="d-flex flex-column h-100">
-    <!-- TODO -->
+<body>
     <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Degree Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-end" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#schedule.html">Schedule</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Main Content -->
+    <!-- Main content -->
     <div class="container-fluid">
-      <div class="row">
-        <h2>Schedule</h2>
-      </div>
-      <div class="row main-content">
-        <!-- Classes -->
-        <div class="col-lg-4 required-classes">
-          <h3>Required Classes</h3>
+        <div class="row align-items-start">
 
-          <ul class="nav nav-tabs" id="coursesTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="lac-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#lac"
-                type="button"
-                role="tab"
-                aria-controls="lac"
-                aria-selected="true"
-              >
-                LAC
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="cs-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#cs"
-                type="button"
-                role="tab"
-                aria-controls="cs"
-                aria-selected="false"
-              >
-                CS
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="contact-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#contact"
-                type="button"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
-          <div class="tab-content px-3" id="coursesTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="lac"
-              role="tabpanel"
-              aria-labelledby="lac-tab"
-            >
-              <!-- LAC Requirements -->
-              <div class="my-4" id="lac-reqs">
+            <!-- All requirements -->
+            <div class="col-lg-4">
+                <h2 class="mt-4 text-break">Requirements</h2>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mt-4" id="coursesTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="lac-tab" data-bs-toggle="tab" data-bs-target="#lac"
+                            type="button" role="tab" aria-controls="lac" aria-selected="true">LAC</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="cs-tab" data-bs-toggle="tab" data-bs-target="#cs" type="button"
+                            role="tab" aria-controls="cs" aria-selected="false">CS</button>
+                    </li>
+                </ul>
 
-                <!-- <div class="card my-2">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title col">
-                        <b>Life of Christ</b>
-                      </h5>
-                      <p class="col-3 text-end">2 hours</p>
+                <!-- Stuff that goes under the tabs -->
+                <div class="tab-content" id="coursesTabContent">
+
+                    <!-- LAC tab -->
+                    <div class="tab-pane fade show active" id="lac" role="tabpanel" aria-labelledby="lac-tab">
+
+                        <!-- Class cards generated -->
+                        <!-- <div class="card my-3">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Life of Christ</h5>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-end">2 hours</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-subtitle">BIB 121</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-end text-muted">Fall</p>
+                                    </div>
+                                </div>
+
+                                <a class="link" type="button" data-bs-toggle="collapse" data-bs-target="#bib121"
+                                    aria-expanded="false" aria-controls="bib121">
+                                    Course Description
+                                </a>
+                                <div class="collapse small mt-2" id="bib121">
+                                    <div class="card-text">
+                                        A thorough textual study of the life of Jesus the Christ. Emphasis is given to
+                                        his virgin birth, his message and ministry, his crucifixion, his resurrection,
+                                        and his ascension, all leading to a greater awareness of his greatness as the
+                                        Son of God and Savior of the world. Moral, doctrinal, historical, and practical
+                                        aspects of the life of Christ are also emphasized. (Text course.)
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
                     </div>
 
-                    <div class="row">
-                      <div class="col">
-                        <p class="card-subtitle">BIB 121</p>
-                      </div>
-                      <div class="col-4 text-end">
-                        <span class="text-muted">Fall</span>
-                      </div>
-                    </div>
-                    <a
-                      href="#bib121"
-                      class="card-link fw-light"
-                      data-bs-toggle="collapse"
-                      role="button"
-                      aria-expanded="false"
-                      >Course description ›</a
-                    >
-                    <div
-                      class="course-description collapse card-text"
-                      id="bib121"
-                    >
-                      <p class="text-muted card-text">
-                        A thorough textual study of the life of Jesus the
-                        Christ. Emphasis is given to his virgin birth, his
-                        message and ministry, his crucifixion, his resurrection,
-                        and his ascension, all leading to a greater awareness of
-                        his greatness as the Son of God and Savior of the world.
-                        Moral, doctrinal, historical, and practical aspects of
-                        the life of Christ are also emphasized. (Text course.)
-                      </p>
-                      
-                    </div>
-                  </div>
-                </div> -->
+                    <!-- CS tab -->
+                    <div class="tab-pane fade" id="cs" role="tabpanel" aria-labelledby="cs-tab">
 
-                <!-- <div class="card my-2">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title col">
-                        <b>Speech</b>
-                      </h5>
-                      <p class="col-3 text-end">2 hours</p>
-                    </div>
+                        <!-- Class cards generated -->
+                        <!-- <div class="card my-3">
+                            <div class="card-body">
 
-                    <div class="row">
-                      <div class="col">
-                        <p class="card-subtitle">BIB 121</p>
-                      </div>
-                      <div class="col-4 text-end">
-                        <span class="text-muted">Fall, Spring</span>
-                      </div>
-                    </div>
-                   
-                    <a
-                      href="#cis171"
-                      class="card-link fw-light"
-                      data-bs-toggle="collapse"
-                      role="button"
-                      aria-expanded="false"
-                      >Course description ›</a
-                    >
-                    <div
-                      class="course-description collapse card-text"
-                      id="cis171"
-                    >
-                      <p class="text-muted card-text">
-                        A study of the design of algorithms, pseudocode, data
-                        types, control structures, arrays, program testing, and
-                        text file processing using a high-level programming
-                        language.
-                      </p>
-                      <p class="card-text small">
-                        Corequisite: MAT 101 College Algebra.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="cs"
-              role="tabpanel"
-              aria-labelledby="profile-cs"
-            >
-              <!-- CS Requirements -->
-              <div class="my-4">
-                <div class="card my-2">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title col">
-                        <b>Computer Programming I</b>
-                      </h5>
-                      <p class="col-3 text-end">3 hours</p>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Computer Programming I</h5>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-end">3 hours</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-subtitle">CIS 171</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-end text-muted">Fall</p>
+                                    </div>
+                                </div>
+
+                                <a class="link" type="button" data-bs-toggle="collapse" data-bs-target="#cis171"
+                                    aria-expanded="false" aria-controls="cis171">
+                                    Course Description
+                                </a>
+                                <div class="collapse small mt-2" id="cis171">
+                                    <div class="card-text">
+                                        A study of the design of algorithms, pseudocode, data types, control structures,
+                                        arrays, program testing, and text file processing using a high-level programming
+                                        language.
+                                    </div>
+                                    <div class="card-text mt-2 text-muted">
+                                        Corequisite: MAT 101 College Algebra
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
                     </div>
 
-                    <div class="row">
-                      <div class="col">
-                        <p class="card-subtitle">CIS 171</p>
-                      </div>
-                      <div class="col-4 text-end">
-                        <span class="text-muted">Fall</span>
-                      </div>
-                    </div>
-                    <!-- <p class="card-subtitle "> CIS 171 </p> -->
-                    <!-- <h6 class="card-subtitle mb-3 fw-light"></h6> -->
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <!-- <p class="card-text text-muted text-end">Fall</p> -->
-                    <a
-                      href="#cis171"
-                      class="card-link fw-light"
-                      data-bs-toggle="collapse"
-                      role="button"
-                      aria-expanded="false"
-                      >Course description ›</a
-                    >
-                    <div
-                      class="course-description collapse card-text"
-                      id="cis171"
-                    >
-                      <p class="text-muted card-text">
-                        A study of the design of algorithms, pseudocode, data
-                        types, control structures, arrays, program testing, and
-                        text file processing using a high-level programming
-                        language.
-                      </p>
-                      <p class="card-text small">
-                        Corequisite: MAT 101 College Algebra.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card my-2">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title col">
-                        <b>Computer Programming II</b>
-                      </h5>
-                      <p class="col-3 text-end">3 hours</p>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p class="card-subtitle">CIS 172</p>
-                      </div>
-                      <div class="col-md-4 text-end">
-                        <span class="text-muted">Spring</span>
-                      </div>
-                    </div>
-                    <!-- <p class="card-subtitle "> CIS 171 </p> -->
-                    <!-- <h6 class="card-subtitle mb-3 fw-light"></h6> -->
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <!-- <p class="card-text text-muted text-end">Fall</p> -->
-                    <a
-                      href="#cis172"
-                      class="card-link fw-light"
-                      data-bs-toggle="collapse"
-                      role="button"
-                      aria-expanded="false"
-                      >Course description ›</a
-                    >
-                    <div
-                      class="course-description collapse card-text"
-                      id="cis172"
-                    >
-                      <p class="text-muted card-text">
-                        A continuation of CIS 171. Emphasis is on
-                        object-oriented constructs and techniques, generics and
-                        use of common data structures supported by the language.
-                      </p>
-                      <p class="card-text small">
-                        Prerequisite: CIS 171 Computer Programming I.
-                      </p>
-                    </div>
-                  </div>
                 </div>
 
-                <div class="card my-2">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title col">
-                        <b>Intro to Web Design</b>
-                      </h5>
-                      <p class="col-3 text-end">3 hours</p>
+            </div>
+
+            <!-- Accordion schedule card thing -->
+            <div class="col-lg-6">
+
+                <h2 class="col-6 mt-4">Schedule</h2>
+
+                <div class="accordion mt-4" id="accordionPanelsStayOpenExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Fall 2020
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 121</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Life of Christ</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BPH 100</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Special Topics in Science</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>0.5</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CHE 121</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>General Chemistry I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>4</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 171</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Computer Programming I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>COM 140</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Speech Communication</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>HIS 221</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>American History I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">15.5</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                      <div class="col">
-                        <p class="card-subtitle">CIS 211</p>
-                      </div>
-                      <div class="col-md-4 text-end">
-                        <span class="text-muted">Spring</span>
-                      </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                Spring 2021
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 122</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Acts of Apostles</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 230</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Marriage & the Family</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 172</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Computer Programming II</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>MAT 122</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Analytics & Calculus I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>4</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>MAT 240</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Discrete Mathematics</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">15</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <p class="card-subtitle "> CIS 171 </p> -->
-                    <!-- <h6 class="card-subtitle mb-3 fw-light"></h6> -->
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <!-- <p class="card-text text-muted text-end">Fall</p> -->
-                    <a
-                      href="#cis211"
-                      class="card-link fw-light"
-                      data-bs-toggle="collapse"
-                      role="button"
-                      aria-expanded="false"
-                      >Course description ›</a
-                    >
-                    <div
-                      class="course-description collapse card-text"
-                      id="cis211"
-                    >
-                      <p class="text-muted card-text">
-                        An interdisciplinary introduction to web design covering
-                        both technical and artistic aspects. The course will
-                        cover the current tools and technologies used for web
-                        design and development. Emphasis will also be given to
-                        the artistic principles relevant to good web design.
-                        Students will design, develop, and critique websites.
-                      </p>
-                      <!-- <p class=" card-text small" >Prerequisite: CIS 171 Computer Programming I.</p> -->
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                Fall 2021
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 140</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Introduction to Christianity</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 267</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Application Development I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 273</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Data Structures</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>MAT 223</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Analytics & Calculus II</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>4</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>PHS 211</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Physics for Science & Engineering I</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>4</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">16</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFour">
+                                Spring 2022
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingFour">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 374</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Algorithms</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 367</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Application Development II</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>PHS 212</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Physics for Science & Engineering II</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>4</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Bible</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>MAT</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Analytics & Calculus III</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">16</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFive">
+                                Fall 2022
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingFive">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 386</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Arch & Assembly Language</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 474</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Artificial Intelligence</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>MAT 235</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Introductory Statistics</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 324</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Database Systems</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Bible</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">17</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseSix">
+                                Spring 2023
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingSix">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 460</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Operating Systems</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Bible</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Creative Works</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">17</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseSeven">
+                                Fall 2023
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingSeven">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 368</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Software Engineering</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 470</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Programming Languages</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 444</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Parallel Programming</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 346</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Foundations of Faith</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">15</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseEight">
+                                Spring 2024
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingEight">
+                            <div class="accordion-body">
+                                <!-- Schedule header -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Course</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <strong>Credits</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Classes -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 345</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Computer Networks</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>CIS 491</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Advanced Topics in CS</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>BIB 495</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Values in Human Thought & Action</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <strong>Elective</strong>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <strong class="text-end">15</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
             </div>
-            <div
-              class="tab-pane fade"
-              id="contact"
-              role="tabpanel"
-              aria-labelledby="contact-tab"
-            >
-              ...
+
+            <!-- Table of contents -->
+            <div class="col sticky-top">
+                <div class="text-muted small mt-4"><strong>On this page</strong></div>
+                <ul class="small mt-2" id="contents">
+                    <li><a href="" class="text-decoration-none">Fall 2020</a></li>
+                    <li><a href="" class="text-decoration-none">Spring 2021</a></li>
+                    <li><a href="" class="text-decoration-none">Fall 2021</a></li>
+                    <li><a href="" class="text-decoration-none">Spring 2022</a></li>
+                </ul>
             </div>
-          </div>
         </div>
 
-        <!-- Semester Schedules -->
-        <div class="col-lg-6 semester-schedules">
-          <h3>Semester Schedules</h3>
-
-          <div class="accordion my-4" id="fall2019">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="fall2019heading">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#fall2019schedule"
-                  aria-expanded="true"
-                  aria-controls="fall2019schedule"
-                >
-                  <h4 class="my-0">Fall 2019</h4>
-                </button>
-              </h2>
-              <div
-                id="fall2019schedule"
-                class="accordion-collapse collapse show"
-                aria-labelledby="fall2019heading"
-              >
-                <div class="accordion-body">
-                  <table class="table table-hover">
-                    <thead>
-                      <th>Course</th>
-                      <td></td>
-                      <td></td>
-                      <th>Credits</th>
-                    </thead>
-                    <tr>
-                      <td>BIB 121</td>
-                      <td>
-                        <span class="fw-bold"> The Life of Christ </span>
-                      </td>
-                      <td>
-                        <span class="badge bg-primary"> LAC </span>
-                      </td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>CIS 171</td>
-                      <td>
-                        <span class="fw-bold">Computer Programming I</span>
-                      </td>
-                      <td>
-                        <span class="badge bg-secondary"> CS </span>
-                      </td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>COM 140</td>
-                      <td>
-                        <span class="fw-bold">Speech</span>
-                      </td>
-                      <td>
-                        <span class="badge bg-primary"> LAC </span>
-                      </td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>CYB 101</td>
-                      <td>
-                        <span class="fw-bold">Intro to Cybersecurity</span>
-                      </td>
-                      <td></td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>MAT 120</td>
-                      <td>
-                        <span class="fw-bold">Precalculus</span>
-                      </td>
-                      <td></td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td class="fw-bold">14</td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion my-4" id="spring2020">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Spring 2020
-                </button>
-              </h2>
-              <div
-                id="collapseTwo"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingTwo"
-              >
-                <div class="accordion-body">
-                  <strong>This is the second item's accordion body.</strong>
-                  It is hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the
-                  <code>.accordion-body</code>, though the transition does limit
-                  overflow.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 position-sticky top-0 h-100 ps-5 toc">
-          <p class="text-muted">On this page</p>
-          <nav>
-            <ul>
-              <li><a href="#fall2020">Fall 2020</a></li>
-              <li><a href="#spring2021">Spring 2021</a></li>
-              <li><a href="">Fall 2021</a></li>
-              <li><a href="">Spring 2022</a></li>
-              <li><a href="">Fall 2022</a></li>
-              <li><a href="">Spring 2023</a></li>
-              <li><a href="">Fall 2023</a></li>
-              <li><a href="">Spring 2024</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-auto bg-dark text-light py-4">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-            <p>Made with ❤️ by FHU students!</p>
-          </div>
-
-          <div class="col-md-3">
-            <p>&copy; 2021 Freed-Hardeman University</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"
-    ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
     <script src="app.js"></script>
-    
-  </body>
+</body>
+
 </html>
